@@ -42,9 +42,7 @@ const FormCategory = (props) => {
         }}
         validationSchema={validationSchema}
         onSubmit={(data, {setSubmitting, resetForm}) => {
-          // console.log("data", data);
           setSubmitting(true);
-          resetForm();
           const newCategory ={
             id:Math.floor(Math.random()*1000),
             ...data
@@ -61,6 +59,7 @@ const FormCategory = (props) => {
                   .catch((error) => {
                     infoViewActionsContext.fetchError(error.message);
                   });
+                  resetForm();
                   setSubmitting(false);
         
        }

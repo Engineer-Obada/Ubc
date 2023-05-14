@@ -8,8 +8,7 @@ import TableItem from './TableItem';
 import AppTableContainer from '@crema/core/AppTableContainer';
 
 const DealsTable = (props) => {
-  const {categoryTableData} = props;
-
+  const {categoryTableData,onDeleteCategory} = props;
   return (
     <AppTableContainer>
       <Table className='table'>
@@ -26,7 +25,9 @@ const DealsTable = (props) => {
           }}
         >
           {categoryTableData.map((row) => (
-            <TableItem row={row} key={row.id} />
+            <TableItem row={row} key={row.id}
+            onDeleteCategory={onDeleteCategory} 
+            />
           ))}
         </TableBody>
       </Table>
@@ -42,4 +43,6 @@ DealsTable.defaultProps = {
 
 DealsTable.propTypes = {
   categoryTableData: PropTypes.array,
+  onDeleteCategory: PropTypes.func,
+
 };

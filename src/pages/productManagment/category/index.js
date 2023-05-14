@@ -8,15 +8,15 @@ import {useGetDataApi} from '@crema/utility/APIHooks';
 import FormCategory from './FormCategory/index';
 
 const category = () => {
-  const [{apiData: categoryData},{reCallAPI}] = useGetDataApi('/api/category');
+  const [{apiData:categoryData},{reCallAPI}] = useGetDataApi('/api/category');
   return (
     <>
-      {categoryData ? (
+    {console.log('categoryData',categoryData)}
         <AppAnimate animation='transition.slideUpIn' delay={200}>
           <AppGridContainer>
            
             <Grid item xs={12} md={8}>
-              <Deals categoryTableData={categoryData} />
+              <Deals categoryTableData={categoryData} reCallAPI={reCallAPI}/>
             </Grid>
 
             <Grid item xs={12} md={4}>
@@ -26,7 +26,7 @@ const category = () => {
   
           </AppGridContainer>
         </AppAnimate>
-      ) : null}
+
 
       <AppInfoView />
     </>

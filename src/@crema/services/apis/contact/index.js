@@ -12,14 +12,21 @@ let categoryData = productData.categoryData;
 mock.onPost('/api/category/compose').reply((request)=>{
 const {category} = JSON.parse(request.data);
 categoryData = [category,...categoryData];
-console.log("categoryData",categoryData);
 return [200,category]
 })
 mock.onGet('/api/category').reply(()=>{
-  console.log("yes");
   return[200,categoryData]
 })
 
+mock.onPost('/api/category/delete').reply((request)=>{
+
+  const categoryId = request.data;
+
+  categoryData = categoryData.filter((category)=>
+    !categoryId.includes(category.id)
+  )
+  return [200,categoryData]
+})
 
 /*************************************************/
 let warehouseData = warehouseList;

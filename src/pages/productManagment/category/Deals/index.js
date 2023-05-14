@@ -7,10 +7,14 @@ import PropTypes from 'prop-types';
 import {Fonts} from 'shared/constants/AppEnums';
 import AppCard from '@crema/core/AppCard';
 import AppSelect from '@crema/core/AppSelect';
+import { postDataApi } from '@crema/utility/APIHooks';
+import { useInfoViewActionsContext } from '@crema/utility/AppContextProvider/InfoViewContextProvider';
 
 const Deals = (props) => {
+  const {reCallAPI} = props;
   const {categoryTableData} = props;
   const [tableData, setTableData] = useState(categoryTableData);
+  const infoViewActionsContext = useInfoViewActionsContext();
 
   const handleChange = (value) => {
     if (value === messages['dashboard.allDeals']) {
@@ -25,6 +29,22 @@ const Deals = (props) => {
       );
     }
   };
+
+  const onDeleteCategory = (categorId)=>{
+    console.log('recall',reCallAPI);
+    const selectId = categorId;
+    console.log("selectId",selectId);
+    postDataApi('/api/category/delete',infoViewActionsContext, selectId
+    ).then(()=>{
+      console.log("reeee");
+      reCallAPI();
+      infoViewActionsContext.showMessage('Category Deleted Successfully');
+
+    }).catch((error) => {
+      infoViewActionsContext.fetchError(error.message);
+    });
+  }
+
 
   const {messages} = useIntl();
 
@@ -62,17 +82,20 @@ const Deals = (props) => {
       action={messages['common.viewAll']}
       sxStyle={{height: 1}}
     >
-      <DealsTable categoryTableData={tableData} />
+      <DealsTable categoryTableData={categoryTableData} tableData={tableData} 
+      onDeleteCategory={onDeleteCategory}
+      />
     </AppCard>
   );
 };
 
 export default Deals;
 
-Deals.defaultProps = {
-  categoryTableData: [],
-};
+// Deals.defaultProps = {
+//   categoryTableData: [],
+// };
 
 Deals.propTypes = {
   categoryTableData: PropTypes.array,
+  reCallAPI: PropTypes.func,
 };

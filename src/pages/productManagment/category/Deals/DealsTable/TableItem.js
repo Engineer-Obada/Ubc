@@ -1,15 +1,18 @@
 import React from 'react';
 import TableCell from '@mui/material/TableCell';
-import {Box} from '@mui/material';
+import {Box, IconButton} from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import TableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
 import {Fonts} from 'shared/constants/AppEnums';
-
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 const TableItem = (props) => {
-  const {row} = props;
-
+  const {row,onDeleteCategory} = props;
+const onDelte = (categoryId)=>{
+  onDeleteCategory(categoryId)
+}
   return (
     <TableRow
       key={row.name}
@@ -19,8 +22,10 @@ const TableItem = (props) => {
           borderBottom: '0 none',
           fontSize: 13,
           padding: 2,
+
           '&:first-of-type': {
             pl: 5,
+
           },
           '&:last-of-type': {
             pr: 5,
@@ -72,6 +77,40 @@ const TableItem = (props) => {
       >
         {row.created}
       </TableCell>
+      <TableCell
+        align='left'
+        sx={{
+          whiteSpace: 'no-wrap',
+        }}
+        className='tableCell'>
+        <IconButton
+          sx={{
+            color: (theme) => theme.palette.text.disabled,
+            padding: 2,
+            '& .MuiSvgIcon-root': {
+              fontSize: 22,
+            },
+          }}
+          size='large'
+        >
+          <EditOutlinedIcon />
+        </IconButton>
+        <IconButton
+          sx={{
+            color: (theme) => theme.palette.text.disabled,
+            padding: 2,
+            '& .MuiSvgIcon-root': {
+              fontSize: 22,
+            },
+          }}
+          size='large'
+        >
+          <DeleteOutlinedIcon 
+          onClick={()=>onDelte(row.id)}
+           />
+        </IconButton>
+        
+      </TableCell>
     </TableRow>
   );
 };
@@ -80,4 +119,5 @@ export default TableItem;
 
 TableItem.propTypes = {
   row: PropTypes.object.isRequired,
-};
+  onDeleteCategory: PropTypes.func}
+  

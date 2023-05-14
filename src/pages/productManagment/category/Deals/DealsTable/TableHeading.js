@@ -34,6 +34,9 @@ const TableHeading = () => {
       <TableCell align='left' className='tableCell'>
         <IntlMessages id='common.created' />
       </TableCell>
+      <TableCell align='left' className='tableCell'>
+        <IntlMessages id='Action' />
+      </TableCell>
     </TableRow>
   );
 };
