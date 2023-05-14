@@ -31,7 +31,6 @@ const Deals = (props) => {
   };
 
   const onDeleteCategory = (categorId)=>{
-    console.log('recall',reCallAPI);
     const selectId = categorId;
     console.log("selectId",selectId);
     postDataApi('/api/category/delete',infoViewActionsContext, selectId
