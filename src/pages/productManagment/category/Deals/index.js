@@ -32,13 +32,10 @@ const Deals = (props) => {
 
   const onDeleteCategory = (categorId)=>{
     const selectId = categorId;
-    console.log("selectId",selectId);
     postDataApi('/api/category/delete',infoViewActionsContext, selectId
     ).then(()=>{
-      console.log("reeee");
       reCallAPI();
       infoViewActionsContext.showMessage('Category Deleted Successfully');
-
     }).catch((error) => {
       infoViewActionsContext.fetchError(error.message);
     });
@@ -64,7 +61,7 @@ const Deals = (props) => {
             }}
             component='h3'
           >
-            <IntlMessages id='dashboard.deals' />
+            <IntlMessages id='Ctegoryes' />
           </Box>
           <AppSelect
             menus={[

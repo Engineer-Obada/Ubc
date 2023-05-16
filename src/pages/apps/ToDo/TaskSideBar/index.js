@@ -120,11 +120,11 @@ const TaskSideBar = ({reCallAPI}) => {
           </List>
         </Box>
       </AppScrollbar>
-      <AddNewTask
+      {/* <AddNewTask
         isAddTaskOpen={isAddTaskOpen}
         onCloseAddTask={onCloseAddTask}
         reCallAPI={reCallAPI}
-      />
+      /> */}
     </>
   );
 };

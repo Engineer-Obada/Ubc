@@ -1,6 +1,6 @@
 import {FiMap} from 'react-icons/fi';
 import {
-  RiCustomerService2Line,
+  // RiCustomerService2Line,
  RiShieldUserLine,
   RiTodoLine,
 } from 'react-icons/ri';
@@ -56,6 +56,13 @@ const routesConfig = [
               type: 'item',
               url: '/productManagment/category',
             },
+            {
+              id: 'product',
+              title: 'Product',
+              messageId: 'Product',
+              type: 'item',
+              url: '/productManagment/product',
+            },
           ]
         },
     /************************************************************/
@@ -74,14 +81,14 @@ const routesConfig = [
         icon: <BsCart4 />,
         url: '/dashboards/warehouse',
       },
-      {
-        id: 'crm',
-        title: 'CRM',
-        messageId: 'sidebar.app.dashboard.crm',
-        type: 'item',
-        icon: <RiCustomerService2Line />,
-        url: '/dashboards/crm',
-      },
+      // {
+      //   id: 'crm',
+      //   title: 'CRM',
+      //   messageId: 'sidebar.app.dashboard.crm',
+      //   type: 'item',
+      //   icon: <RiCustomerService2Line />,
+      //   url: '/dashboards/crm',
+      // },
      
       {
         id: 'e-commerce',
