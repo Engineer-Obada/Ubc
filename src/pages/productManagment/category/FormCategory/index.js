@@ -10,6 +10,7 @@ import { useInfoViewActionsContext } from '@crema/utility/AppContextProvider/Inf
 
 const validationSchema = yup.object({
   nameCategory: yup.string().required(<IntlMessages id='validation.nameRequired' />),
+  created: yup.date().required(<IntlMessages id='Please enter date!' />),
 
 });
 
@@ -18,19 +19,6 @@ const FormCategory = (props) => {
   const {reCallAPI} = props;
 
 
-//   const [userImage, setUserImage] = useState(
-//     selectContact && selectContact.image
-//       ? selectContact.image
-//       : '/assets/images/placeholder.jpg',
-//   );
-
-//   useEffect(() => {
-//     setUserImage(
-//       selectContact && selectContact.image
-//         ? selectContact.image
-//         : '/assets/images/placeholder.jpg',
-//     );
-//   }, [selectContact]);
 
   return (
     <AppCard  >
@@ -47,7 +35,7 @@ const FormCategory = (props) => {
             id:Math.floor(Math.random()*1000),
             ...data
           }
-          postDataApi('/api/category/compose',infoViewActionsContext,
+          postDataApi('/api/category/add',infoViewActionsContext,
           {
             category:newCategory,
           }).then(() => {
@@ -64,50 +52,7 @@ const FormCategory = (props) => {
         
        }
       }    
-        //   if (selectContact) {
-        //     const newContact = {
-        //       id: selectContact.id,
-        //       image: userImage,
-        //       ...data,
-        //     };
-        //     putDataApi('/api/contactApp/contact/', infoViewActionsContext, {
-        //       contact: newContact,
-        //     })
-        //       .then(() => {
-        //         reCallAPI();
-        //         infoViewActionsContext.showMessage(
-        //           'Contact updated successfully!',
-        //         );
-        //       })
-        //       .catch((error) => {
-        //         infoViewActionsContext.fetchError(error.message);
-        //       });
-        //     onUpdateContact(newContact);
-        //   } else {
-        //     const newContact = {
-        //       id: Math.floor(Math.random() * 1000),
-        //       // accountStatus: false,
-        //       // isFrequent: Math.random() > 0.5,
-        //       image: userImage,
-        //       ...data,
-        //     };
-        //     postDataApi('/api/contactApp/compose', infoViewActionsContext, {
-        //       contact: newContact,
-        //     })
-        //       .then(() => {
-        //         reCallAPI();
-        //         infoViewActionsContext.showMessage(
-        //           'Contact created successfully!',
-        //         );
-        //       })
-        //       .catch((error) => {
-        //         infoViewActionsContext.fetchError(error.message);
-        //       });
-        //   }
-        //   handleAddContactClose();
-        //   resetForm();
-        //   setSubmitting(false);
-        // }}
+        
       >
         {({values, setFieldValue}) => (
           <AddNewCategory

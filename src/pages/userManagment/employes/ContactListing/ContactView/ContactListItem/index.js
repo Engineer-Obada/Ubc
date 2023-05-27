@@ -212,7 +212,7 @@ const ContactListItem = ({
                 whiteSpace: 'nowrap',
               }}
             >
-              {contact.phone}
+              {contact.phoneNum}
             </Box>
             <Box                                            // Role
               component='span'

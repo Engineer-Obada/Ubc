@@ -72,7 +72,7 @@ const AddNewCategory = (props) => {
           <input {...getInputProps()} />
           <label htmlFor='icon-button-file'>
             <AvatarViewWrapper>
-              <Avatar /////////////  after open Add New Category
+              <Avatar
                 sx={{
                   width: 60,
                   height: 60,

@@ -1,22 +1,23 @@
 import React from 'react';
 import {Grid} from '@mui/material';
-import Deals from './Deals';
 import AppGridContainer from '@crema/core/AppGridContainer';
 import AppInfoView from '@crema/core/AppInfoView';
 import AppAnimate from '@crema/core/AppAnimate';
 import {useGetDataApi} from '@crema/utility/APIHooks';
 import FormCategory from './FormCategory/index';
+import Category from './CategoryView';
 
 const category = () => {
-  const [{apiData:categoryData},{reCallAPI}] = useGetDataApi('/api/category');
+  const api = 'api'
+  const [{apiData:categoryData},{reCallAPI}] = useGetDataApi(`/${api}/category`);
   return (
     <>
-    {console.log('categoryData',categoryData)}
+   
         <AppAnimate animation='transition.slideUpIn' delay={200}>
           <AppGridContainer>
            
             <Grid item xs={12} md={8}>
-              <Deals categoryTableData={categoryData} reCallAPI={reCallAPI}/>
+              <Category categoryTableData={categoryData} reCallAPI={reCallAPI}/>
             </Grid>
 
             <Grid item xs={12} md={4}>

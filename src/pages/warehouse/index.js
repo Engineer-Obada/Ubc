@@ -1,15 +1,16 @@
 import React from 'react';
-import ContactListing from './ContactListing';
 import AppsContainer from '@crema/core/AppsContainer';
 import {useGetDataApi} from '@crema/utility/APIHooks';
+import Warehouseisting from './WarehouseListing';
 const warhouse = () => {
+  const api = 'api'
   const [{apiData, loading}, {setQueryParams, setData, reCallAPI}] =
-    useGetDataApi('/api/warehouse/list', {}, {}, false);
+    useGetDataApi(`/${api}/warehouse`, {}, {}, false);
   return (
     <AppsContainer
       title={"Warhouse"}
     >
-      <ContactListing
+      <Warehouseisting
         apiData={apiData}
         loading={loading}
         setQueryParams={setQueryParams}
