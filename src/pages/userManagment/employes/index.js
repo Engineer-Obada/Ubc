@@ -4,7 +4,7 @@ import AppsContainer from '@crema/core/AppsContainer';
 import {useGetDataApi} from '@crema/utility/APIHooks';
 const employes = () => {
   const [{apiData, loading}, {setQueryParams, setData, reCallAPI}] =
-    useGetDataApi('/api/contactApp/contact/List', {}, {}, false);
+    useGetDataApi('/api/employee', {}, {}, false);
   return (
     <AppsContainer
       title={"Employees"}

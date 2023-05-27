@@ -187,7 +187,7 @@ const AddContactForm = (props) => {
               }}
               variant='outlined'
               label={<IntlMessages id='Phone' />} // phone
-              name='phone'
+              name='phoneNum'
               type="number"
             />
             <AppGridContainer spacing={5}>

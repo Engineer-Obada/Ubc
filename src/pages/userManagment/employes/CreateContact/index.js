@@ -60,7 +60,7 @@ const CreateContact = (props) => {
           password: selectContact ? selectContact.password : '',
           accountStatus:selectContact ? selectContact.accountStatus : '',
           role:selectContact && selectContact.role ? selectContact.role : '',
-          phone:selectContact && selectContact.phone ? selectContact.phone : '',
+          phoneNum:selectContact && selectContact.phoneNum ? selectContact.phoneNum : '',
 
         }}
         validationSchema={validationSchema}
@@ -91,8 +91,6 @@ const CreateContact = (props) => {
           } else {
             const newContact = {
               id: Math.floor(Math.random() * 1000),
-              // accountStatus: false,
-              // isFrequent: Math.random() > 0.5,
               image: userImage,
               ...data,
             };

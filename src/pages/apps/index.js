@@ -3,7 +3,6 @@ import {Navigate} from 'react-router-dom';
 import {RoutePermittedRole} from 'shared/constants/AppConst';
 const Mail = React.lazy(() => import('./Mail'));
 const ToDo = React.lazy(() => import('./ToDo'));
-const Contact = React.lazy(() => import('./Contact'));
 const ScrumBoard = React.lazy(() => import('./ScrumBoard'));
 
 export const appsConfig = [
@@ -37,11 +36,7 @@ export const appsConfig = [
     path: '/apps/todo',
     element: <Navigate to='/apps/todo/all' />,
   },
-  {
-    permittedRole: RoutePermittedRole.User,
-    path: ['/apps/contact/folder/:name', '/apps/contact/label/:name'],
-    element: <Contact />,
-  },
+ 
   {
     path: '/apps/contact',
     element: <Navigate to='/apps/contact/folder/all' />,
